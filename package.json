@@ -10,6 +10,7 @@
     "coroutine"
   ],
   "devDependencies": {
+    "6to5": "*",
     "bluebird": "^2.0.0",
     "istanbul-harmony": "0",
     "mocha": "^2.0.0",
@@ -17,9 +18,9 @@
     "request": "^2.36.0"
   },
   "scripts": {
-    "test": "mocha --harmony-generators --reporter spec",
-    "test-cov": "node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
-    "test-travis": "node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot"
+    "test": "mocha --harmony-generators --reporter spec --require 6to5/register",
+    "test-cov": "node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --require 6to5/register",
+    "test-travis": "node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --require 6to5/register"
   },
   "files": [
     "index.js"
